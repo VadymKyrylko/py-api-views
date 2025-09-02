@@ -3,10 +3,10 @@ from rest_framework.routers import DefaultRouter
 from cinema.views import (
     MovieViewSet,
     CinemaHallViewSet,
-    GenreListCreateAPIView,
-    GenreDetailAPIView,
-    ActorListCreateAPIView,
-    ActorDetailAPIView
+    GenreList,
+    GenreDetail,
+    ActorList,
+    ActorDetail
 )
 
 app_name = "cinema"
@@ -22,23 +22,23 @@ router.register(
 urlpatterns = [
     path(
         "genres/",
-        GenreListCreateAPIView.as_view(),
+        GenreList.as_view(),
         name="genre-list"
     ),
     path(
         "genres/<int:pk>/",
-        GenreDetailAPIView.as_view(),
+        GenreDetail.as_view(),
         name="genre-detail"
     ),
 
     path(
         "actors/",
-        ActorListCreateAPIView.as_view(),
+        ActorList.as_view(),
         name="actor-list"
     ),
     path(
         "actors/<int:pk>/",
-        ActorDetailAPIView.as_view(),
+        ActorDetail.as_view(),
         name="actor-detail"
     ),
 
